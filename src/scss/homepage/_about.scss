@@ -1,0 +1,112 @@
+.about {
+  position: relative;
+  @include adaptiv-valie("margin-bottom", 240, 50, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 93px;
+    bottom: -38px;
+    width: 181px;
+    height: 167px;
+    background-image: url("../img/icons/icons.svg#about-decor");
+    z-index: 5;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    row-gap: 30px;
+    align-items: center;
+
+    @media (max-width: 756px) {
+      flex-direction: column;
+    }
+  }
+
+  &__photos {
+    flex: 0 0 45.5%;
+    position: relative;
+    padding-left: 70px;
+    padding-top: 70px;
+    @include adaptiv-valie("padding-bottom", 480, 200, 1);
+    opacity: 0;
+
+    &._active {
+      animation: slide-in-fwd-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    }
+
+    @media (max-width: 756px) {
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+      order: 2;
+    }
+  }
+
+  &__photo-front {
+    object-fit: cover;
+    border-radius: 24px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 87%;
+    height: 87%;
+  }
+
+  &__photo-back {
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    border-radius: 24px;
+    width: 87%;
+    height: 87%;
+  }
+
+  &__content {
+    width: 49%;
+
+    @media (max-width: 756px) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include adaptiv-valie("margin-bottom", 32, 20, 1);
+
+    &._active {
+      animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+  }
+
+  &__text {
+    @include adaptiv-valie("margin-bottom", 80, 30, 1);
+
+    &._active {
+      animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    }
+  }
+
+  &__button {
+    padding: 18px 70px 18px 34px;
+
+    &._active {
+      animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+    }
+
+    @media (max-width: 567px) {
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,164 @@
+.categories {
+  @include adaptiv-valie("padding-top", 240, 50, 1);
+  @include adaptiv-valie("padding-bottom", 240, 50, 1);
+  position: relative;
+
+  &::after {
+    content: "";
+    background-image: url("../img/icons/icons.svg#category-decor-left");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 57%;
+    transform: translateY(-50%);
+    width: 233px;
+    height: 490px;
+    left: 78px;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: "";
+    background-image: url("../img/icons/icons.svg#category-decor-right");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 146px;
+    height: 322px;
+    right: 53px;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include adaptiv-valie(" margin-bottom", 60, 30, 1);
+
+    span {
+      color: $blue;
+    }
+
+    &._active {
+      animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    opacity: 0;
+
+    &._active {
+      animation: slide-in-fwd-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    }
+  }
+
+  &__wrppper {
+    display: flex;
+    transition-property: transform;
+    overflow: visible;
+  }
+
+  &__slide,
+  &__slide-duplicate {
+    flex-shrink: 0;
+
+    &--active {
+      @media (min-width: 567px) {
+        .categories__slide-link {
+          background-color: $blue;
+          color: $white;
+
+          .categories__slide-icon {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &__slide-link {
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    @include adaptiv-valie("padding-top", 90, 30, 1);
+    @include adaptiv-valie("padding-right", 120, 20, 1);
+    @include adaptiv-valie("padding-bottom", 36, 20, 1);
+    @include adaptiv-valie("padding-left", 60, 20, 1);
+    border-radius: 24px;
+    transition: background-color 0.5s ease-in-out;
+    margin: 0 auto;
+
+    &--instrumental {
+      background-color: rgba($color: $brick, $alpha: 0.1);
+
+      .categories__slide-icon {
+        color: $brick;
+      }
+    }
+
+    &--rock {
+      background-color: rgba($color: $purple, $alpha: 0.1);
+
+      .categories__slide-icon {
+        color: $purple;
+      }
+    }
+
+    &--jazz {
+      background-color: rgba($color: $blueLight, $alpha: 0.1);
+
+      .categories__slide-icon {
+        color: $blueLight;
+      }
+    }
+
+    &--pop {
+      background-color: rgba($color: $brown, $alpha: 0.1);
+
+      .categories__slide-icon {
+        color: $brown;
+      }
+    }
+
+    &--folk {
+      background-color: rgba($color: $red, $alpha: 0.1);
+
+      .categories__slide-icon {
+        color: $red;
+      }
+    }
+
+    @media (max-width: 567px) {
+      width: 100%;
+    }
+  }
+
+  &__slide-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    margin-bottom: 30px;
+    transition: color 0.5s ease-in-out;
+  }
+
+  &__slide-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1.58;
+    margin-bottom: 30px;
+    transition: color 0.5s ease-in-out;
+  }
+
+  &__slide-text {
+    transition: color 0.5s ease-in-out;
+  }
+}

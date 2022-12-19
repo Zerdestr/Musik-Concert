@@ -1,0 +1,149 @@
+.hero {
+  background-image: url("../img/hero-bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, #381ddb 0%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  }
+
+  @media (max-width: 991px) {
+    justify-content: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 970px;
+    margin: 0 auto;
+    @include adaptiv-valie("margin-bottom", 122, 50, 1);
+    @include adaptiv-valie("row-gap", 40, 15, 1);
+  }
+
+  &__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    line-height: 1.22;
+    color: $white;
+    text-transform: capitalize;
+    @include adaptiv-valie("font-size", 72, 30, 1);
+    animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+
+    span {
+      color: $redLight;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.58;
+    color: $white;
+    @include adaptiv-valie("font-size", 24, 18, 1);
+    animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both;
+  }
+
+  &__links {
+    color: $white;
+    display: flex;
+    column-gap: 40px;
+    align-items: center;
+    animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+
+    @media (max-width: 567px) {
+      flex-direction: column;
+      row-gap: 15px;
+    }
+  }
+
+  &__button {
+    background-color: $red;
+    color: $white;
+
+    @media (max-width: 567px) {
+      width: 100%;
+    }
+  }
+
+  &__video {
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    position: relative;
+    transition: color 0.2s ease-in-out;
+
+    span {
+      font-size: 46px;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $red;
+      }
+
+      &:focus {
+        outline: 2px solid $dark;
+        border-radius: 5px;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__clock {
+    position: relative;
+    z-index: 3;
+    color: transparent;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-family: "Montserrat";
+    column-gap: 10px;
+    font-weight: 700;
+    @include adaptiv-valie("font-size", 144, 30, 0);
+    line-height: 1.22;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+    margin-bottom: 53px;
+    max-width: max-content;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1450px;
+    width: 100%;
+    padding: 0 10px;
+    animation: slide-in-fwd-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
+  }
+}
