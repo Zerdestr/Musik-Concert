@@ -181,16 +181,16 @@ function close(event) {
 document.addEventListener('click', close);
 
 
+let deadline = document.querySelector('.hero__clock').dataset.deadline;
 
-
-var deadline = '2023-01-20';
+console.log(deadline);
 
 function getTimeRemaining(endtime) {
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  let t = Date.parse(endtime) - Date.parse(new Date());
+  let seconds = Math.floor((t / 1000) % 60);
+  let minutes = Math.floor((t / 1000 / 60) % 60);
+  let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  let days = Math.floor(t / (1000 * 60 * 60 * 24));
   return {
     'total': t,
     'days': days,
@@ -201,13 +201,13 @@ function getTimeRemaining(endtime) {
 }
 
 function initializeClock(id, endtime) {
-  var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector('.days');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
+  let clock = document.getElementById(id);
+  let daysSpan = clock.querySelector('.days');
+  let hoursSpan = clock.querySelector('.hours');
+  let minutesSpan = clock.querySelector('.minutes');
+  let secondsSpan = clock.querySelector('.seconds');
   function updateClock() {
-    var t = getTimeRemaining(endtime);
+    let t = getTimeRemaining(endtime);
 
     daysSpan.innerHTML = ('0' + t.days).slice(-2);
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
@@ -218,8 +218,8 @@ function initializeClock(id, endtime) {
     }
   }
 
-  updateClock(); // запустите функцию один раз, чтобы избежать задержки  
-  var timeinterval = setInterval(updateClock, 1000);
+  updateClock(); 
+  let timeinterval = setInterval(updateClock, 1000);
 }
 
 initializeClock('clockdiv', deadline);
